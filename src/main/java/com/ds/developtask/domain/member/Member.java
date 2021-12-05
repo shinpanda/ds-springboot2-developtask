@@ -1,11 +1,14 @@
 package com.ds.developtask.domain.member;
 
+import com.ds.developtask.domain.order.Order;
 import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -36,6 +39,9 @@ public class Member {
     private String email;
 
     private String gender;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "member")
+    private List<Order> orders = new ArrayList<Order>();
 
     @Builder
     public Member(String name, String nickName, String password, String phoneNumber, String email, String gender) {

@@ -1,5 +1,6 @@
 package com.ds.developtask.domain.order;
 
+import com.ds.developtask.domain.member.Member;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -19,4 +20,8 @@ public class Order {
 
     @NotNull
     private LocalDateTime paymentDate;
+
+    @ManyToOne(optional = false)
+    private Member member;
+
 }

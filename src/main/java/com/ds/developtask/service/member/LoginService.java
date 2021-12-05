@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
 
-    private final MemberRepository memberRepository;
+    private MemberRepository memberRepository;
 
     public Member login(String name, String password){
         return null;

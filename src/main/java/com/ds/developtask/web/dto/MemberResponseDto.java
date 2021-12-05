@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public class MemberResponseDto {
-    private Long id;
     private String name;
     private String nickName;
     private String password;
@@ -18,7 +17,6 @@ public class MemberResponseDto {
 
     @Builder
     public MemberResponseDto(Member member) {
-        this.id = member.getId();
         this.name = member.getName();
         this.nickName = member.getNickName();
         this.password = member.getPassword();
