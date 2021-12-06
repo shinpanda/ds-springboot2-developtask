@@ -1,6 +1,6 @@
 package com.ds.developtask.domain.member;
 
-import com.ds.developtask.domain.order.Order;
+import com.ds.developtask.domain.order.Orders;
 import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,7 +16,7 @@ import java.util.List;
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
@@ -41,7 +41,7 @@ public class Member {
     private String gender;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "member")
-    private List<Order> orders = new ArrayList<Order>();
+    private List<Orders> orders = new ArrayList<Orders>();
 
     @Builder
     public Member(String name, String nickName, String password, String phoneNumber, String email, String gender) {

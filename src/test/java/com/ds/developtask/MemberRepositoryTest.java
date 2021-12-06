@@ -22,7 +22,7 @@ public class MemberRepositoryTest {
 
     @Autowired
     MemberRepository memberRepository;
-/*
+
     @Test
     public void testSignup() throws Exception{
         String name = "TEST";
@@ -39,5 +39,5 @@ public class MemberRepositoryTest {
         Optional<Member> member = memberRepository.findById(id);
         assertThat(member.get().getName()).isEqualTo(name);
     }
- */
+
 }

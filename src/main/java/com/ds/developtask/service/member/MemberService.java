@@ -26,14 +26,12 @@ public class MemberService {
         return memberRepository.save(memberDto.toEntity()).getId();
     }
 
-    @Transactional
     public MemberResponseDto get(Long id){
         Optional<Member> member = Optional.ofNullable(memberRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 회원이 존재하지 않습니다.")));
         return new MemberResponseDto(member.get());
     }
 
-    @Transactional
     public List<MemberListResponseDto> list(String name, String email, PageRequest pageRequest) {
         Page<Member> result = memberRepository.findByNameAndEmail(name,email, pageRequest);
         List<Member> members = result.getContent();

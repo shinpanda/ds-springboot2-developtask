@@ -1,7 +1,7 @@
 package com.ds.developtask.web.dto;
 
 import com.ds.developtask.domain.member.Member;
-import com.ds.developtask.domain.order.Order;
+import com.ds.developtask.domain.order.Orders;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ public class MemberListResponseDto {
     private String phoneNumber;
     private String email;
     private String gender;
-    private Order order;
+    private Orders order;
 
     @Builder
     public MemberListResponseDto(Member member) {

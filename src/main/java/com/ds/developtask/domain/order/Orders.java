@@ -2,12 +2,16 @@ package com.ds.developtask.domain.order;
 
 import com.ds.developtask.domain.member.Member;
 import com.sun.istack.NotNull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Getter
+@NoArgsConstructor
 @Entity
-public class Order {
+public class Orders {
 
     @Id
     @NotNull
