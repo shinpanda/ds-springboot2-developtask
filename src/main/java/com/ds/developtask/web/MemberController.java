@@ -49,7 +49,9 @@ public class MemberController {
         return memberService.list(name, email,pageRequest);
     }
 
+    @ApiOperation(value = "회원의 주문 목록 조회", notes = "회원의 주문 목록을 조회한다.")
+    @GetMapping("/orders/{id}")
     public List<OrderListResponseDTO> orderList(@PathVariable Long id){
-        return ordersService.findByMemberIDWithMember(id);
+        return ordersService.findByMemberIDWithMemberUsingJoin(id);
     }
 }

@@ -1,2 +1,2 @@
-com/ds/developtask/MemberRepositoryTest.java
- com.ds.developtask.MemberRepositoryTest
+com/ds/developtask/MemberControllerTest.java
+ com.ds.developtask.MemberControllerTest

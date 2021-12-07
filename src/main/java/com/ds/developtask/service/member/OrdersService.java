@@ -15,8 +15,8 @@ public class OrdersService {
 
     private final OrdersRepository ordersRepository;
 
-    public List<OrderListResponseDTO> findByMemberIDWithMember(Long id){
-        List<Orders> orders = ordersRepository.findByMemberIDWithMember(id);
+    public List<OrderListResponseDTO> findByMemberIDWithMemberUsingJoin(Long id){
+        List<Orders> orders = ordersRepository.findByMemberIDWithMemberUsingJoin(id);
 
         return orders.stream().map(OrderListResponseDTO::new).collect(Collectors.toList());
     }

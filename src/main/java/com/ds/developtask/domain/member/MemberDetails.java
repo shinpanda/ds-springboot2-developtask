@@ -1,4 +1,4 @@
-package com.ds.developtask.service.security;
+package com.ds.developtask.domain.member;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,8 +15,8 @@ public class MemberDetails implements UserDetails {
     private Collection<? extends GrantedAuthority>authorities;
 
 
-    public MemberDetails(String username, String password, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled, Collection<? extends GrantedAuthority> authorities) {
-        this.username = username;
+    public MemberDetails(String name, String password, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled, Collection<? extends GrantedAuthority> authorities) {
+        this.username = name;
         this.password = password;
         this.isAccountNonExpired = isAccountNonExpired;
         this.isAccountNonLocked = isAccountNonLocked;
