@@ -1,9 +1,12 @@
 package com.ds.developtask.web;
 
+import com.ds.developtask.domain.order.Orders;
 import com.ds.developtask.service.member.MemberService;
+import com.ds.developtask.service.member.OrdersService;
 import com.ds.developtask.web.dto.MemberListResponseDto;
 import com.ds.developtask.web.dto.MemberResponseDto;
 import com.ds.developtask.web.dto.MemberSaveRequestDto;
+import com.ds.developtask.web.dto.OrderListResponseDTO;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -20,6 +23,7 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
+    private final OrdersService ordersService;
 
     @ApiOperation(value = "회원 가입", notes = "회원 정보를 입력한다.")
     @PostMapping("/signup")
@@ -43,5 +47,9 @@ public class MemberController {
         PageRequest pageRequest = PageRequest.of(page,size, Sort.by(Sort.Direction.DESC, "paymentDate"));
 
         return memberService.list(name, email,pageRequest);
+    }
+
+    public List<OrderListResponseDTO> orderList(@PathVariable Long id){
+        return ordersService.findByMemberIDWithMember(id);
     }
 }

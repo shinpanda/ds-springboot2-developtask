@@ -1,0 +1,2 @@
+com/ds/developtask/MemberRepositoryTest.java
+ com.ds.developtask.MemberRepositoryTest
