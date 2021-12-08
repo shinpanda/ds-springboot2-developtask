@@ -2,6 +2,8 @@ package com.ds.developtask;
 
 import com.ds.developtask.domain.member.Member;
 import com.ds.developtask.domain.member.MemberRepository;
+import com.ds.developtask.domain.order.Orders;
+import com.ds.developtask.domain.order.OrdersRepository;
 import com.ds.developtask.web.dto.MemberSaveRequestDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +32,9 @@ public class MemberControllerTest {
     @Autowired
     private MemberRepository memberRepository;
 
+    @Autowired
+    private OrdersRepository ordersRepository;
+
     @Test
     public void signup() {
         String name = "Tester1";
@@ -56,4 +61,29 @@ public class MemberControllerTest {
         assertThat(members.get(0).getName()).isEqualTo(name);
     }
 
+    @Test
+    public void memberOrderSelect(){
+        String name = "Tester1";
+        String nickName = "Tester";
+        String password = "P@ssw0rd";
+        String phoneNumber = "01000000000";
+        String email = "test@test.com";
+
+        MemberSaveRequestDto memberSaveRequestDto = MemberSaveRequestDto.builder()
+                .name(name)
+                .nickName(nickName)
+                .password(password)
+                .phoneNumber(phoneNumber)
+                .email(email).build();
+
+        String url = "http://localhost:" + port +  "/member/signup";
+
+        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, memberSaveRequestDto, Long.class);
+
+        String productName = "테스트😂";
+        Member member = memberRepository.findAll().get(0);
+
+        Orders orders = Orders.builder().productName(productName).member(member).build();
+        ordersRepository.save(orders);
+    }
 }

@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 public class MemberResponseDto {
     private String name;
     private String nickName;
-    private String password;
     private String phoneNumber;
     private String email;
     private String gender;
@@ -19,7 +18,6 @@ public class MemberResponseDto {
     public MemberResponseDto(Member member) {
         this.name = member.getName();
         this.nickName = member.getNickName();
-        this.password = member.getPassword();
         this.phoneNumber = member.getPhoneNumber();
         this.email = member.getEmail();
         this.gender = member.getGender();

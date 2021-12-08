@@ -21,5 +21,4 @@ public class OrdersService {
         return orders.stream().map(OrderListResponseDTO::new).collect(Collectors.toList());
     }
 
-
 }

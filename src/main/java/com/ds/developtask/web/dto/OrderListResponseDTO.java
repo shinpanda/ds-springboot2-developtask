@@ -7,14 +7,16 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.UUID;
 
 @Getter
 @RequiredArgsConstructor
 public class OrderListResponseDTO {
 
-    private String orderNo;
+    private UUID orderNo;
     private String productName;
-    private LocalDateTime paymentDate;
+    private Date paymentDate;
     private Member member;
 
     @Builder
