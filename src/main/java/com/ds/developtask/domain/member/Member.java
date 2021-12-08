@@ -13,6 +13,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/*
+create table member (
+        id bigint not null,
+        email varchar(100) not null,
+        gender varchar(255),
+        name varchar(20) not null,
+        nick_name varchar(30) not null,
+        password varchar(255) not null,
+        phone_number varchar(20) not null,
+        primary key (id)
+        )
+ */
+
 @Getter
 @NoArgsConstructor
 @Entity

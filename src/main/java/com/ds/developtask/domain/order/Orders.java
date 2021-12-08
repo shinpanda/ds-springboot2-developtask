@@ -12,6 +12,15 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
+/*
+create table orders (
+        order_no varchar(12) not null,
+        payment_date datetime,
+        product_name varchar(100),
+        member_id bigint not null,
+        primary key (order_no)
+        )
+ */
 @Getter
 @NoArgsConstructor
 @Entity
@@ -19,10 +28,10 @@ public class Orders {
 
     @Id
     @NotNull
-    //@Column(length = 12)
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
+    @Column(length = 12)
+    //@GeneratedValue(generator = "uuid2")
+    //@GenericGenerator(name = "uuid2", strategy = "uuid2")
+    //@Column(columnDefinition = "BINARY(16)")
     //UNHEX(UUID_SHORT())
     private UUID orderNo;
 

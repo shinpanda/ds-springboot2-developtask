@@ -5,6 +5,7 @@ import com.ds.developtask.domain.member.Member;
 import com.ds.developtask.domain.member.MemberRepository;
 import com.ds.developtask.service.member.LoginService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +31,8 @@ public class HomeController {
 
     @ApiOperation(value = "로그인", notes = "로그인을 진행하며, 정상 진행 시 token이 발행됩니다")
     @PostMapping("/login")
-    public String login(@RequestParam String name, @RequestParam String password){
+    public String login(@ApiParam(value = "이름") @RequestParam String name
+            , @ApiParam(value = "패스워드") @RequestParam String password){
         Member member = memberRepository.findByName(name);
 
         if(member == null)
